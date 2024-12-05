@@ -6,19 +6,14 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Careers from "./components/Careers";
-import "./App.css"; // Import file CSS
+import "./App.css"; // Đảm bảo file CSS được import
 
 const App = () => {
   return (
     <Router>
-      <div
-        style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
-      >
-        {/* Navbar */}
+      <div className="app-container">
         <Navbar />
-
-        {/* Main Content */}
-        <main>
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -26,8 +21,6 @@ const App = () => {
             <Route path="/careers" element={<Careers />} />
           </Routes>
         </main>
-
-        {/* Footer */}
         <Footer />
       </div>
     </Router>

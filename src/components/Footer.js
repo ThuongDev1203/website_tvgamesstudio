@@ -67,7 +67,7 @@ const Footer = () => {
     },
     button: {
       padding: "5px 15px",
-      backgroundColor: "#f60",
+      backgroundColor: "#B03052",
       color: "#fff",
       border: "none",
       borderRadius: "4px",
@@ -97,11 +97,6 @@ const Footer = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <div style={styles.contentWrapper}>
-        {/* Nội dung chính của trang */}
-        <p style={{ padding: "20px" }}>This is the main content of the page.</p>
-      </div>
-
       <footer style={styles.footer}>
         <div style={styles.footerContainer}>
           {/* Social Channel Section */}

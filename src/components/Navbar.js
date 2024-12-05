@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
 
 const Navbar = () => {
   return (
     <nav style={styles.navbar}>
       {/* Logo */}
       <div style={styles.logoContainer}>
-        <img src={logo} alt="Logo" style={styles.logo} />
+        <img
+          src={process.env.PUBLIC_URL + "/assets/logo.png"} // Use relative path from public folder
+          alt="Logo"
+          style={styles.logo}
+        />
       </div>
 
       {/* Menu */}
@@ -43,7 +46,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "space-between",
     padding: "10px 20px",
-    backgroundColor: "rgba(51, 51, 51, 0.8)",
+    backgroundColor: "#001F3F",
     boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
     position: "fixed",
     top: 0,
@@ -58,7 +61,7 @@ const styles = {
     marginLeft: "100px",
   },
   logo: {
-    width: "100px",
+    width: "60px",
     objectFit: "cover",
   },
   navList: {

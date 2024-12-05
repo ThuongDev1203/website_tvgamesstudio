@@ -4,7 +4,7 @@ const Careers = () => {
   return (
     <div>
       <h1>Careers</h1>
-      <p>Join our team and build your career with us.</p>
+      {/* <p>Join our team and build your career with us.</p> */}
     </div>
   );
 };
