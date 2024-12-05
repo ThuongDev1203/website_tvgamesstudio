@@ -19,16 +19,17 @@ const Footer = () => {
     pageContainer: {
       display: "flex",
       flexDirection: "column",
-      minHeight: "100vh",
+      minHeight: "100vh", // Ensures the page takes at least the full height of the viewport
     },
     contentWrapper: {
-      flex: "1",
+      flex: "1", // This will make sure content takes up remaining space
     },
     footer: {
       backgroundColor: "#2d2d2d",
       color: "#fff",
       padding: "20px 50px",
       fontSize: "14px",
+      marginTop: "auto", // This ensures the footer stays at the bottom
     },
     footerContainer: {
       display: "flex",
@@ -101,7 +102,7 @@ const Footer = () => {
         <div style={styles.footerContainer}>
           {/* Social Channel Section */}
           <div style={styles.section}>
-            <h2>Social Channel</h2>
+            <h2>Kênh Xã Hội</h2>
             <div style={styles.socialIcons}>
               <FontAwesomeIcon icon={faFacebook} style={styles.icon} />
               <FontAwesomeIcon icon={faLinkedin} style={styles.icon} />
@@ -113,7 +114,7 @@ const Footer = () => {
 
           {/* Contact Info Section */}
           <div style={styles.section}>
-            <h2>Contact Info</h2>
+            <h2>Thông Tin Liên Hệ</h2>
             <p>
               <FontAwesomeIcon icon={faEnvelope} /> thuongdev1203@gmail.com
             </p>
@@ -124,28 +125,28 @@ const Footer = () => {
 
           {/* Job Alert Section */}
           <div style={styles.section}>
-            <h2>Get Jobs Alert</h2>
+            <h2>Nhận Thông Báo Việc Làm</h2>
             <form onSubmit={handleJobAlertSubmit} style={styles.jobAlertForm}>
               <input
                 type="email"
-                placeholder="Enter your email here"
+                placeholder="Nhập email của bạn"
                 style={styles.input}
                 required
               />
               <button type="submit" style={styles.button}>
-                Submit
+                Gửi
               </button>
             </form>
           </div>
 
           {/* More About Us Section */}
           <div style={styles.section}>
-            <h2>More About Us</h2>
+            <h2>Thông Tin Thêm Về Chúng Tôi</h2>
             <ul style={styles.ul}>
-              <li style={styles.li}>Home</li>
-              <li style={styles.li}>About</li>
-              <li style={styles.li}>Contact</li>
-              <li style={styles.li}>Careers</li>
+              <li style={styles.li}>Trang Chủ</li>
+              <li style={styles.li}>Về Chúng Tôi</li>
+              <li style={styles.li}>Liên Hệ</li>
+              <li style={styles.li}>Tuyển Dụng</li>
             </ul>
           </div>
         </div>

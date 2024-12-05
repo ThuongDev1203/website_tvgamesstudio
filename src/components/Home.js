@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slideshow from "./Slideshow";
+import AboutUs from "../views/AboutUs";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,27 +17,29 @@ const Home = () => {
     <div style={{ paddingTop: "85px" }}>
       {/* Slideshow Component */}
       <Slideshow />
-
       {/* Divider Line */}
       <div style={styles.divider}></div>
-
       {/* About Section */}
       <section
         style={{
           ...styles.aboutSection,
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? "translateY(0)" : "translateY(20px)",
-          transition: "opacity 1s ease, transform 1s ease",
+          transition: "opacity 5s ease, transform 5s ease",
         }}
       >
-        <h2 style={styles.aboutTitle}>About Us</h2>
+        <h2 style={styles.aboutTitle}>VỀ CHÚNG TÔI</h2>
         <p style={styles.aboutText}>
-          Welcome to our website! We are a company focused on delivering the
-          best products to our customers. Our team is dedicated to providing
-          exceptional services and quality products that meet your needs. Stay
-          tuned for more updates!
+          VT Game Studio là một studio game nho nhỏ phát triển trò chơi đa nền
+          tảng tại TP Hồ Chí Minh, được sáng lập bởi bạn sinh viên đầy nhiệt
+          huyết và đam mê. Với sự sáng tạo và năng lực vượt trội, VT Game Studio
+          đang không ngừng nỗ lực để mang đến những trò chơi thú vị và đột phá
+          cho người chơi.
         </p>
       </section>
+      {/* Divider Line */}
+      <div style={styles.divider}></div>
+      {/* About Us */} <AboutUs />
     </div>
   );
 };
@@ -44,10 +47,10 @@ const Home = () => {
 const styles = {
   // Divider style
   divider: {
-    width: "100%",
-    height: "2px",
+    width: "80%",
+    height: "5px",
     backgroundColor: "#333", // Dark color for the divider
-    margin: "30px 0", // Space around the divider
+    margin: "30px auto", // Space around the divider
   },
 
   // About Section styles
