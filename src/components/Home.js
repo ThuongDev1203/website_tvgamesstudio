@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div style={{ paddingTop: "85px" }}>
+    <div style={{ paddingTop: "100px" }}>
       {/* Slideshow Component */}
       <Slideshow />
       {/* Divider Line */}

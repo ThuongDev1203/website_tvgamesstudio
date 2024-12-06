@@ -83,7 +83,7 @@ const styles = {
   },
   logoContainer: {
     flex: "0 1 auto",
-    marginLeft: "200px",
+    marginLeft: "100px",
   },
   logo: {
     width: "60px",
@@ -92,7 +92,7 @@ const styles = {
   navList: {
     display: "flex",
     listStyle: "none",
-    marginRight: "200px",
+    marginRight: "100px",
     padding: 0,
   },
   navLink: {
