@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slideshow from "./Slideshow";
 import AboutUs from "../views/AboutUs";
+import GameInfo from "../views/GameInfo";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,6 +41,9 @@ const Home = () => {
       {/* Divider Line */}
       <div style={styles.divider}></div>
       {/* About Us */} <AboutUs />
+      {/* Divider Line */}
+      <div style={styles.divider}></div>
+      {/* About Us */} <GameInfo />
     </div>
   );
 };

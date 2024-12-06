@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function About() {
   const [hoveredMember, setHoveredMember] = useState(null);
@@ -8,14 +11,14 @@ function About() {
       id: 1,
       name: "Nguyễn Cao Thượng",
       role: "Trưởng nhóm",
-      description: "Có 2 năm kinh nghiệm về Unity Dev và ReactJs.",
+      description: "Unity Dev và ReactJs.",
       image: "/assets/avt.jpg",
     },
     {
       id: 2,
       name: "Nguyễn Văn Việt",
       role: "Phó nhóm",
-      description: "Có 1+ năm kinh nghiệm về Unity và Data.",
+      description: "Unity Dev và Data.",
       image: "/assets/avt1.jpg",
     },
   ];
@@ -43,8 +46,35 @@ function About() {
     },
   ];
 
+  const sliderImages = ["/assets/s3.png", "/assets/s4.png", "/assets/s5.png"];
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+  };
+
   return (
     <div style={styles.container}>
+      {/* Slideshow Section */}
+      <Slider {...sliderSettings} style={styles.slider}>
+        {sliderImages.map((image, index) => (
+          <div key={index}>
+            <img
+              src={image}
+              alt={`Slide ${index + 1}`}
+              style={styles.sliderImage}
+            />
+          </div>
+        ))}
+      </Slider>
+
+      {/* Mission Section */}
       {missionData.map((item, index) => (
         <section
           key={item.id}
@@ -64,13 +94,17 @@ function About() {
       {/* Divider Line */}
       <div style={styles.divider}></div>
 
+      {/* Team Members Section */}
       <section style={styles.section}>
         <h2 style={styles.heading}>THÀNH VIÊN</h2>
         <div style={styles.members}>
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              style={styles.memberCard}
+              style={{
+                ...styles.memberCard,
+                ...(hoveredMember === member.id && styles.memberCardHovered),
+              }}
               onMouseEnter={() => setHoveredMember(member.id)}
               onMouseLeave={() => setHoveredMember(null)}
             >
@@ -95,20 +129,26 @@ function About() {
 }
 
 const styles = {
+  slider: {
+    marginBottom: "40px",
+  },
+  sliderImage: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
   divider: {
     width: "80%",
     height: "5px",
-    backgroundColor: "#333", // Dark color for the divider
-    margin: "30px auto", // Space around the divider
+    backgroundColor: "#333",
+    margin: "30px auto",
   },
   container: {
     fontFamily: "Arial, sans-serif",
     lineHeight: 1.6,
-    padding: "20px",
+    padding: "100px",
     backgroundColor: "#f8f9fa",
     color: "#333",
-    // eslint-disable-next-line no-dupe-keys
-    padding: "100px",
   },
   missionSection: {
     display: "flex",
@@ -117,7 +157,7 @@ const styles = {
     gap: "20px",
   },
   missionImage: {
-    width: "30%",
+    width: "20%",
     height: "auto",
     borderRadius: "10px",
     boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
@@ -148,26 +188,28 @@ const styles = {
     position: "relative",
     width: "330px",
     textAlign: "center",
-    //borderRadius: "15px",
     overflow: "hidden",
-    boxShadow: "0 6px 10px rgba(0,0,0,0.15)", // Tăng bóng mềm mại hơn
+    boxShadow: "0 6px 10px rgba(0,0,0,0.15)",
     cursor: "pointer",
     backgroundColor: "#fff",
     transition: "transform 0.3s, box-shadow 0.3s",
-    padding: "20px", // Khoảng cách bên trong
+    padding: "20px",
+    borderRadius: "8px",
   },
-
+  memberCardHovered: {
+    transform: "scale(1.05)",
+    boxShadow: "0 8px 15px rgba(0, 0, 0, 0.3)",
+  },
   memberImage: {
-    width: "100%", // Tăng kích thước ảnh
-    height: "400px", // Điều chỉnh chiều cao ảnh
+    width: "100%",
+    height: "400px",
     objectFit: "cover",
-    //borderRadius: "50%", // Làm ảnh dạng hình tròn
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)", // Thêm hiệu ứng đổ bóng
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
   },
   memberName: {
-    fontSize: "1.5em", // Tăng kích cỡ chữ
+    fontSize: "1.5em",
     margin: "10px 0",
-    fontWeight: "bold", // Làm chữ đậm
+    fontWeight: "bold",
   },
   memberInfo: {
     position: "absolute",
@@ -176,7 +218,6 @@ const styles = {
     color: "#fff",
     padding: "10px",
     width: "310px",
-    //height: "auto",
     textAlign: "center",
     transition: "opacity 1s",
   },

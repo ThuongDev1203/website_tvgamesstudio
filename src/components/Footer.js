@@ -19,17 +19,17 @@ const Footer = () => {
     pageContainer: {
       display: "flex",
       flexDirection: "column",
-      minHeight: "100vh", // Ensures the page takes at least the full height of the viewport
+      minHeight: "60vh",
     },
     contentWrapper: {
-      flex: "1", // This will make sure content takes up remaining space
+      flex: "1",
     },
     footer: {
       backgroundColor: "#2d2d2d",
       color: "#fff",
       padding: "20px 50px",
       fontSize: "14px",
-      marginTop: "auto", // This ensures the footer stays at the bottom
+      marginTop: "auto",
     },
     footerContainer: {
       display: "flex",
@@ -57,6 +57,10 @@ const Footer = () => {
       color: "#fff",
       transition: "color 0.3s",
     },
+    iconLink: {
+      color: "inherit",
+      textDecoration: "none",
+    },
     jobAlertForm: {
       display: "flex",
     },
@@ -68,7 +72,7 @@ const Footer = () => {
     },
     button: {
       padding: "5px 15px",
-      backgroundColor: "#B03052",
+      backgroundColor: "#FF8000",
       color: "#fff",
       border: "none",
       borderRadius: "4px",
@@ -104,11 +108,46 @@ const Footer = () => {
           <div style={styles.section}>
             <h2>Kênh Xã Hội</h2>
             <div style={styles.socialIcons}>
-              <FontAwesomeIcon icon={faFacebook} style={styles.icon} />
-              <FontAwesomeIcon icon={faLinkedin} style={styles.icon} />
-              <FontAwesomeIcon icon={faTiktok} style={styles.icon} />
-              <FontAwesomeIcon icon={faInstagram} style={styles.icon} />
-              <FontAwesomeIcon icon={faYoutube} style={styles.icon} />
+              <a
+                href="https://www.facebook.com/profile.php?id=61567654960765"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.iconLink}
+              >
+                <FontAwesomeIcon icon={faFacebook} style={styles.icon} />
+              </a>
+              <a
+                href="https://www.linkedin.com/feed/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.iconLink}
+              >
+                <FontAwesomeIcon icon={faLinkedin} style={styles.icon} />
+              </a>
+              <a
+                href="https://www.tiktok.com/@thuongdev?_t=8rz2ebcbFDD&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.iconLink}
+              >
+                <FontAwesomeIcon icon={faTiktok} style={styles.icon} />
+              </a>
+              <a
+                href="https://www.instagram.com/thuongdev/profilecard/?igsh=bHdoZDRlazVuMWtw"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.iconLink}
+              >
+                <FontAwesomeIcon icon={faInstagram} style={styles.icon} />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCxbt0uq0qGP4NvlIdXIDiiQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.iconLink}
+              >
+                <FontAwesomeIcon icon={faYoutube} style={styles.icon} />
+              </a>
             </div>
           </div>
 
@@ -125,7 +164,7 @@ const Footer = () => {
 
           {/* Job Alert Section */}
           <div style={styles.section}>
-            <h2>Nhận Thông Báo Việc Làm</h2>
+            <h2>Cơ Hội Nghề Nghiệp</h2>
             <form onSubmit={handleJobAlertSubmit} style={styles.jobAlertForm}>
               <input
                 type="email"
