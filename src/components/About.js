@@ -111,15 +111,21 @@ function About() {
               <img
                 src={member.image}
                 alt={member.name}
-                style={styles.memberImage}
+                style={{
+                  ...styles.memberImage,
+                  ...(hoveredMember === member.id && styles.memberImageHovered),
+                }}
               />
-              <h3 style={styles.memberName}>{member.name}</h3>
-              {hoveredMember === member.id && (
-                <div style={styles.memberInfo}>
-                  <p style={styles.memberRole}>{member.role}</p>
-                  <p style={styles.memberDescription}>{member.description}</p>
-                </div>
-              )}
+              <div
+                style={{
+                  ...styles.memberInfo,
+                  ...(hoveredMember === member.id && styles.memberInfoHovered),
+                }}
+              >
+                <h3 style={styles.memberName}>{member.name}</h3>
+                <p style={styles.memberRole}>{member.role}</p>
+                <p style={styles.memberDescription}>{member.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -186,40 +192,48 @@ const styles = {
   },
   memberCard: {
     position: "relative",
-    width: "330px",
+    width: "300px",
+    height: "400px",
     textAlign: "center",
     overflow: "hidden",
     boxShadow: "0 6px 10px rgba(0,0,0,0.15)",
     cursor: "pointer",
     backgroundColor: "#fff",
     transition: "transform 0.3s, box-shadow 0.3s",
-    padding: "20px",
     borderRadius: "8px",
   },
   memberCardHovered: {
-    transform: "scale(1.05)",
+    transform: "scale(1.1)",
     boxShadow: "0 8px 15px rgba(0, 0, 0, 0.3)",
+    zIndex: 2,
   },
   memberImage: {
     width: "100%",
-    height: "400px",
+    height: "100%",
     objectFit: "cover",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+    transition: "transform 0.3s",
+  },
+  memberImageHovered: {
+    transform: "scale(1.2)",
+  },
+  memberInfo: {
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+    right: "0",
+    backgroundColor: "rgba(0,0,0,0.7)",
+    color: "#fff",
+    padding: "10px",
+    opacity: 0,
+    transition: "opacity 0.3s",
+  },
+  memberInfoHovered: {
+    opacity: 1,
   },
   memberName: {
     fontSize: "1.5em",
     margin: "10px 0",
     fontWeight: "bold",
-  },
-  memberInfo: {
-    position: "absolute",
-    bottom: "0",
-    backgroundColor: "rgba(0,0,0,0.7)",
-    color: "#fff",
-    padding: "10px",
-    width: "310px",
-    textAlign: "center",
-    transition: "opacity 1s",
   },
   memberRole: {
     fontSize: "1em",
