@@ -135,114 +135,173 @@ function About() {
 }
 
 const styles = {
+  container: {
+    fontFamily: "'Quicksand', sans-serif",
+    lineHeight: 1.6,
+    padding: "80px 20px",
+    background: "linear-gradient(135deg, #0d0b1f, #1e1747)", // Gradient tím đậm
+    color: "#fff",
+    minHeight: "100vh",
+    overflow: "hidden",
+  },
   slider: {
-    marginBottom: "40px",
+    marginBottom: "60px",
+    borderRadius: "20px",
+    overflow: "hidden",
+    boxShadow: "0 10px 30px rgba(255, 0, 122, 0.3)",
+    border: "2px solid #00d4ff",
   },
   sliderImage: {
     width: "100%",
-    height: "100%",
+    height: "auto",
     objectFit: "cover",
+    maxHeight: "500px",
   },
   divider: {
     width: "80%",
-    height: "5px",
-    backgroundColor: "#333",
-    margin: "30px auto",
-  },
-  container: {
-    fontFamily: "Arial, sans-serif",
-    lineHeight: 1.6,
-    padding: "100px",
-    backgroundColor: "#f8f9fa",
-    color: "#333",
+    height: "3px",
+    background:
+      "linear-gradient(90deg, transparent, #ff007a, #00d4ff, transparent)",
+    margin: "60px auto",
+    borderRadius: "5px",
+    boxShadow: "0 0 15px rgba(255, 0, 122, 0.5)",
   },
   missionSection: {
     display: "flex",
     alignItems: "center",
-    marginBottom: "40px",
-    gap: "20px",
+    marginBottom: "50px",
+    gap: "30px",
+    background: "rgba(255, 0, 122, 0.1)",
+    padding: "30px",
+    borderRadius: "15px",
+    boxShadow: "0 10px 20px rgba(255, 0, 122, 0.2)",
+    border: "1px solid rgba(255, 0, 122, 0.4)",
+    transition: "transform 0.3s ease",
+    ":hover": {
+      transform: "scale(1.02)",
+    },
   },
   missionImage: {
-    width: "20%",
+    width: "25%",
     height: "auto",
-    borderRadius: "10px",
-    boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+    borderRadius: "15px",
+    boxShadow: "0 0 20px rgba(0, 212, 255, 0.5)",
+    border: "2px solid #00d4ff",
+    transform: "rotate(5deg)", // Góc nghiêng kiểu hoạt hình
+    transition: "transform 0.3s ease",
+    ":hover": {
+      transform: "rotate(0deg) scale(1.1)",
+    },
   },
   missionContent: {
     flex: 1,
     textAlign: "left",
   },
   section: {
-    marginBottom: "40px",
+    marginBottom: "60px",
     textAlign: "center",
+    perspective: "1000px", // Không gian 3D cho member cards
   },
   heading: {
-    fontSize: "2em",
-    marginBottom: "10px",
-    color: "#1B1833",
+    fontSize: "3em",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    background: "linear-gradient(90deg, #ff007a, #00d4ff)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textShadow: "0 0 20px rgba(255, 0, 122, 0.8)",
+    marginBottom: "30px",
+    animation: "bounce 2s infinite",
   },
   text: {
-    fontSize: "1.2em",
+    fontSize: "1.4em",
+    color: "#fff",
+    textShadow: "0 0 5px rgba(0, 212, 255, 0.4)",
   },
   members: {
     display: "flex",
     justifyContent: "center",
-    gap: "20px",
+    gap: "30px",
     flexWrap: "wrap",
   },
   memberCard: {
     position: "relative",
-    width: "300px",
-    height: "400px",
+    width: "320px",
+    height: "420px",
     textAlign: "center",
     overflow: "hidden",
-    boxShadow: "0 6px 10px rgba(0,0,0,0.15)",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
     cursor: "pointer",
-    backgroundColor: "#fff",
-    transition: "transform 0.3s, box-shadow 0.3s",
-    borderRadius: "8px",
+    background: "rgba(0, 212, 255, 0.1)",
+    borderRadius: "20px",
+    border: "2px solid #ff007a",
+    transition: "transform 0.5s ease, box-shadow 0.5s ease",
+    transformStyle: "preserve-3d",
   },
   memberCardHovered: {
-    transform: "scale(1.1)",
-    boxShadow: "0 8px 15px rgba(0, 0, 0, 0.3)",
+    transform: "rotateY(10deg) rotateX(5deg) scale(1.1)", // Hiệu ứng 3D nghiêng
+    boxShadow:
+      "0 20px 50px rgba(255, 0, 122, 0.7), 0 0 30px rgba(0, 212, 255, 0.5)",
     zIndex: 2,
   },
   memberImage: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    transition: "transform 0.3s",
+    borderRadius: "18px",
+    transition: "transform 0.5s ease",
   },
   memberImageHovered: {
-    transform: "scale(1.2)",
+    transform: "scale(1.15)",
   },
   memberInfo: {
     position: "absolute",
     bottom: "0",
     left: "0",
     right: "0",
-    backgroundColor: "rgba(0,0,0,0.7)",
+    background:
+      "linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 31, 63, 0.7))",
     color: "#fff",
-    padding: "10px",
+    padding: "15px",
     opacity: 0,
-    transition: "opacity 0.3s",
+    transition: "opacity 0.3s ease",
+    transform: "translateZ(20px)", // Chiều sâu 3D
   },
   memberInfoHovered: {
     opacity: 1,
   },
   memberName: {
-    fontSize: "1.5em",
+    fontSize: "1.8em",
     margin: "10px 0",
-    fontWeight: "bold",
+    fontWeight: "700",
+    color: "#ff007a",
+    textShadow: "0 0 10px rgba(255, 0, 122, 0.8)",
   },
   memberRole: {
-    fontSize: "1em",
-    fontWeight: "bold",
+    fontSize: "1.2em",
+    fontWeight: "700",
+    color: "#00d4ff",
   },
   memberDescription: {
-    fontSize: "0.9em",
+    fontSize: "1em",
     marginTop: "10px",
+    color: "#fff",
   },
 };
+
+// Thêm keyframes cho animation
+const keyframes = `
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+  }
+`;
+
+if (typeof document !== "undefined") {
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = keyframes;
+  document.head.appendChild(styleSheet);
+}
 
 export default About;

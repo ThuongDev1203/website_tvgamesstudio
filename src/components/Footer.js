@@ -12,22 +12,19 @@ import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 const Footer = () => {
   const handleJobAlertSubmit = (event) => {
     event.preventDefault();
-    alert("Thank you for subscribing to job alerts!");
+    alert("Cảm ơn bạn đã đăng ký nhận thông báo tuyển dụng!");
   };
 
   const styles = {
     pageContainer: {
       display: "flex",
       flexDirection: "column",
-      minHeight: "60vh",
-    },
-    contentWrapper: {
-      flex: "1",
+      minHeight: "35vh",
     },
     footer: {
       backgroundColor: "#2d2d2d",
       color: "#fff",
-      padding: "20px 50px",
+      padding: "20px 20px", // Giảm padding ngang trên mobile
       fontSize: "14px",
       marginTop: "auto",
     },
@@ -35,9 +32,23 @@ const Footer = () => {
       display: "flex",
       justifyContent: "space-between",
       flexWrap: "wrap",
+      gap: "20px", // Thêm khoảng cách giữa các section
+      maxWidth: "1200px",
+      margin: "0 auto",
+      "@media (max-width: 768px)": {
+        flexDirection: "column", // Chuyển sang cột trên mobile
+        alignItems: "center", // Căn giữa
+        textAlign: "center",
+      },
     },
     section: {
       margin: "10px",
+      minWidth: "200px", // Đảm bảo section không quá nhỏ
+      "@media (max-width: 768px)": {
+        margin: "15px 0", // Tăng khoảng cách dọc trên mobile
+        minWidth: "auto",
+        width: "100%", // Chiếm toàn bộ chiều rộng
+      },
     },
     ul: {
       listStyleType: "none",
@@ -46,16 +57,26 @@ const Footer = () => {
     },
     li: {
       marginBottom: "10px",
+      "@media (max-width: 768px)": {
+        fontSize: "16px", // Tăng kích thước chữ cho dễ đọc
+      },
     },
     socialIcons: {
       display: "flex",
       gap: "10px",
+      "@media (max-width: 768px)": {
+        justifyContent: "center", // Căn giữa icon trên mobile
+        gap: "15px", // Tăng khoảng cách giữa các icon
+      },
     },
     icon: {
       fontSize: "24px",
       cursor: "pointer",
       color: "#fff",
       transition: "color 0.3s",
+      ":hover": {
+        color: "#FF8000", // Màu cam khi hover
+      },
     },
     iconLink: {
       color: "inherit",
@@ -63,12 +84,23 @@ const Footer = () => {
     },
     jobAlertForm: {
       display: "flex",
+      "@media (max-width: 768px)": {
+        flexDirection: "column", // Chuyển sang cột trên mobile
+        alignItems: "center",
+        gap: "10px",
+      },
     },
     input: {
       padding: "5px",
       marginRight: "10px",
       border: "none",
       borderRadius: "4px",
+      width: "100%", // Chiếm toàn bộ chiều rộng
+      boxSizing: "border-box",
+      "@media (max-width: 768px)": {
+        marginRight: "0",
+        padding: "8px", // Tăng padding cho dễ nhập
+      },
     },
     button: {
       padding: "5px 15px",
@@ -77,6 +109,10 @@ const Footer = () => {
       border: "none",
       borderRadius: "4px",
       cursor: "pointer",
+      transition: "background-color 0.3s",
+      ":hover": {
+        backgroundColor: "#e07b00", // Tối hơn khi hover
+      },
     },
     footerBottom: {
       display: "flex",
@@ -85,18 +121,40 @@ const Footer = () => {
       borderTop: "1px solid #444",
       marginTop: "20px",
       paddingTop: "10px",
+      "@media (max-width: 768px)": {
+        flexDirection: "column", // Chuyển sang cột trên mobile
+        gap: "10px",
+        textAlign: "center",
+      },
     },
     logo: {
       fontWeight: "bold",
       fontSize: "16px",
+      "@media (max-width: 768px)": {
+        fontSize: "18px", // Tăng kích thước logo
+      },
     },
     links: {
       display: "flex",
       gap: "15px",
+      "@media (max-width: 768px)": {
+        flexDirection: "column", // Chuyển sang cột
+        gap: "8px",
+      },
     },
     link: {
       color: "#fff",
       textDecoration: "none",
+      transition: "color 0.3s",
+      ":hover": {
+        color: "#FF8000", // Màu cam khi hover
+      },
+    },
+    contactText: {
+      marginBottom: "10px",
+      "@media (max-width: 768px)": {
+        fontSize: "16px", // Tăng kích thước chữ
+      },
     },
   };
 
@@ -154,10 +212,10 @@ const Footer = () => {
           {/* Contact Info Section */}
           <div style={styles.section}>
             <h2>Thông Tin Liên Hệ</h2>
-            <p>
+            <p style={styles.contactText}>
               <FontAwesomeIcon icon={faEnvelope} /> thuongdev1203@gmail.com
             </p>
-            <p>
+            <p style={styles.contactText}>
               <FontAwesomeIcon icon={faPhone} /> +84 76 5012 192
             </p>
           </div>
@@ -194,12 +252,12 @@ const Footer = () => {
         <div style={styles.footerBottom}>
           <div style={styles.logo}>VT GAME STUDIO</div>
           <div style={styles.links}>
-            <spam href="#" style={styles.link}>
+            <span href="" style={styles.link}>
               Privacy Policy
-            </spam>
-            <spam href="#" style={styles.link}>
+            </span>
+            <span href="#" style={styles.link}>
               Terms & Conditions
-            </spam>
+            </span>
           </div>
           <div>© 2024 by VT Game Studio</div>
         </div>

@@ -21,10 +21,9 @@ function Contact() {
   return (
     <div style={styles.contactContainer}>
       <div style={styles.innerContainer}>
-        <h1 style={styles.heading}>Liên hệ với chúng tôi</h1>
+        <h1 style={styles.heading}>LIÊN HỆ VỚI CHÚNG TÔI</h1>
         <p style={styles.subHeading}>
-          Bạn có câu hỏi nào không? Hãy liên hệ với chúng tôi qua biểu mẫu dưới
-          đây!
+          Bạn có thắc mắc? Đừng ngại, hãy gửi tin nhắn cho chúng tôi ngay!
         </p>
         <form style={styles.form} onSubmit={handleSubmit}>
           <input
@@ -55,7 +54,7 @@ function Contact() {
             required
           />
           <button style={styles.button} type="submit">
-            Gửi
+            GỬI TIN NHẮN
           </button>
         </form>
       </div>
@@ -68,64 +67,111 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    height: "100vh",
-    backgroundColor: "#f9f9f9",
-    padding: "0 20px",
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #0d0b1f, #1e1747)", // Gradient tím đậm
+    padding: "20px",
+    fontFamily: "'Quicksand', sans-serif",
   },
   innerContainer: {
-    maxWidth: "500px",
+    maxWidth: "600px",
     width: "100%",
-    backgroundColor: "#fff",
-    padding: "30px",
-    borderRadius: "10px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    background: "rgba(255, 0, 122, 0.1)", // Nền hồng nhạt
+    padding: "40px",
+    borderRadius: "20px",
+    boxShadow:
+      "0 10px 40px rgba(255, 0, 122, 0.3), 0 0 20px rgba(0, 212, 255, 0.1)",
+    border: "2px solid",
+    borderImage: "linear-gradient(90deg, #ff007a, #00d4ff) 1", // Viền gradient neon
     textAlign: "center",
+    backdropFilter: "blur(10px)", // Hiệu ứng mờ
+    WebkitBackdropFilter: "blur(10px)",
+    animation: "fadeIn 1s ease-in-out",
   },
   heading: {
-    fontSize: "2em",
-    marginBottom: "10px",
-    color: "#333",
+    fontSize: "2.5em",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    background: "linear-gradient(90deg, #ff007a, #00d4ff)", // Gradient hồng-xanh
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textShadow: "0 0 20px rgba(255, 0, 122, 0.8)",
+    marginBottom: "15px",
   },
   subHeading: {
-    fontSize: "1.1em",
-    marginBottom: "20px",
-    color: "#666",
+    fontSize: "1.3em",
+    color: "#fff",
+    textShadow: "0 0 5px rgba(0, 212, 255, 0.4)",
+    marginBottom: "30px",
   },
   form: {
     display: "flex",
     flexDirection: "column",
-    gap: "15px",
+    gap: "20px",
   },
   input: {
     width: "100%",
-    padding: "10px",
-    border: "1px solid #ddd",
-    borderRadius: "5px",
-    fontSize: "1em",
+    padding: "12px",
+    border: "2px solid #00d4ff", // Viền xanh neon
+    borderRadius: "25px",
+    background: "rgba(255, 255, 255, 0.1)",
+    color: "#fff",
+    fontSize: "1.1em",
     boxSizing: "border-box",
+    outline: "none",
+    transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+    ":focus": {
+      borderColor: "#ff007a", // Hồng khi focus
+      boxShadow: "0 0 15px rgba(255, 0, 122, 0.5)",
+    },
   },
   textarea: {
     width: "100%",
-    padding: "10px",
-    border: "1px solid #ddd",
-    borderRadius: "5px",
-    fontSize: "1.2em",
+    padding: "12px",
+    border: "2px solid #00d4ff",
+    borderRadius: "15px",
+    background: "rgba(255, 255, 255, 0.1)",
+    color: "#fff",
+    fontSize: "1.1em",
     boxSizing: "border-box",
-    textAlign: "center",
+    textAlign: "left",
+    outline: "none",
+    transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+    ":focus": {
+      borderColor: "#ff007a",
+      boxShadow: "0 0 15px rgba(255, 0, 122, 0.5)",
+    },
   },
   button: {
-    padding: "12px 20px",
-    fontSize: "1em",
+    padding: "14px 30px",
+    fontSize: "1.2em",
+    fontWeight: "700",
     color: "#fff",
-    backgroundColor: "#FF8000",
+    background: "linear-gradient(90deg, #ff007a, #00d4ff)", // Gradient hồng-xanh
     border: "none",
-    borderRadius: "5px",
+    borderRadius: "30px",
     cursor: "pointer",
-    transition: "background-color 0.3s ease",
-  },
-  buttonHover: {
-    backgroundColor: "#F29F58",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    boxShadow: "0 0 20px rgba(255, 0, 122, 0.5)",
+    textTransform: "uppercase",
+    ":hover": {
+      transform: "scale(1.1)",
+      boxShadow: "0 0 30px rgba(255, 0, 122, 0.8)",
+    },
   },
 };
+
+// Thêm keyframes cho animation
+const keyframes = `
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+`;
+
+if (typeof document !== "undefined") {
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = keyframes;
+  document.head.appendChild(styleSheet);
+}
 
 export default Contact;
